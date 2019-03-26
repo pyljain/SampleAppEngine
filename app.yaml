@@ -1,0 +1,19 @@
+runtime: custom
+env: flex
+service: virus-scanner
+# This sample incurs costs to run on the App Engine flexible environment. 
+# The settings below are to reduce costs during testing and are not appropriate
+# for production use. For more information, see:
+# https://cloud.google.com/appengine/docs/flexible/nodejs/configuring-your-app-with-app-yaml
+env_variables:
+    CLOUD_STORAGE_BUCKET: unscanned-documents
+    UNSCANNED_BUCKET: unscanned-documents
+    CLEAN_BUCKET: clean-documents
+    QUARANTINED_BUCKET: quarantined-documents
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 2
+resources:
+  cpu: 1
+  memory_gb: 2
+  disk_size_gb: 10
